@@ -60,11 +60,6 @@ namespace BibleData.DataRetrieval
             throw new NotImplementedException();
         }
 
-        public bool Initialize()
-        {
-            throw new NotImplementedException();
-        }
-
         private async Task<string> DataFetchAsync(String url)
         {
             var client = new HttpClient();

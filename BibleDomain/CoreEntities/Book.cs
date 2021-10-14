@@ -14,5 +14,6 @@ namespace BibleDomain.CoreEntities
         }
         public string BookName { get; set; }
         public int ChapterCount { get; set; }
+        public List<IChapter> Chapters { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

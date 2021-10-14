@@ -30,9 +30,30 @@ namespace BibleData.DataRetrieval
                                    .ToString());
 
             Book book = new Book(node["name"].ToString(), node["chapters"].Children().Count());
-            return new Book("test");
+            book.Chapters = new List<IChapter>();
+            int chapterIndex = 1;
+            foreach(var chapterNode in node["chapters"].Children())
+            {
+                Chapter chapter = new Chapter();
+                chapter.VerseCount = chapterNode.Children().Count();
+                chapter.Verses = new List<IVerse>();
+                chapter.ChapterNumber = chapterIndex;
+                chapterIndex++;
+                int indexVerse = 1;
+                foreach(var verseNode in chapterNode.Children())
+                {
+                    Verse verse = new Verse();
+                    verse.Text = verseNode.ToString();
+                    verse.verseNumber = indexVerse;
+                    indexVerse++;
+                    chapter.Verses.Add(verse);
+                }
+                book.Chapters.Add(chapter);
+            }
+            return book;
         }
 
+        //only loading the name, so we don't need to initialize the entire Bible at once
         public List<IBook> GetBooks()
         {
             String result = LoadJSONString();
@@ -50,12 +71,13 @@ namespace BibleData.DataRetrieval
 
         public IChapter GetChapter(IBook book, int chapterNumber)
         {
-            throw new NotImplementedException();
+            //to adjust chapter 
+            return book.Chapters[chapterNumber-1];
         }
 
         public List<IChapter> GetChapters(IBook book)
         {
-            throw new NotImplementedException();
+            return book.Chapters;
         }
 
         public IPassage GetPassage(IBook book, IChapter chapter, int startVerse, int endVerse)
@@ -63,9 +85,5 @@ namespace BibleData.DataRetrieval
             throw new NotImplementedException();
         }
 
-        public bool Initialize()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -18,5 +18,6 @@ namespace BibleData.DataEntities
         }
         public string BookName { get; set; }
         public int ChapterCount { get; set; }
+        public List<IChapter> Chapters { get; set; }
     }
 }

@@ -8,5 +8,7 @@ namespace BibleComonInterface
     {
         public string BookName { get; set; }
         public int ChapterCount { get; set; }
+
+        List<IChapter> Chapters { get; set; }
     }
 }

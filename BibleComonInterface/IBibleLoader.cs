@@ -6,7 +6,6 @@ namespace BibleComonInterface
 {
     public interface IBibleLoader
     {
-        public bool Initialize();
         public List<IBook> GetBooks();
         public IBook GetBook(String bookID);
         public List<IChapter> GetChapters(IBook book);

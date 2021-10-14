@@ -6,8 +6,8 @@ namespace BibleComonInterface
 {
     public interface IChapter
     {
-        public IBook Book { get; set; }
-        public string Text { get; set; }
+        public List<IVerse> Verses { get; set; }
         public int VerseCount { get; set; }
+        public int ChapterNumber { get; set; }
     }
 }
