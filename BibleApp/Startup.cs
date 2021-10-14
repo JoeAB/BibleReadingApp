@@ -36,8 +36,8 @@ namespace BibleApp
             // Register individual components
             builder.RegisterType<BibleDomain.Managers.BibleBookManager>()
                 .As<BibleComonInterface.IBibleBookManager>();
-            builder.RegisterType<BibleData.DataRetrieval.BibleRestLoader>()
-                .As<BibleComonInterface.IBibleLoader>();
+            builder.RegisterType<BibleData.DataRetrieval.BibleJsonLoader>()
+                .As<BibleComonInterface.IBibleLoader>().WithParameter(new TypedParameter(typeof(string), Configuration.GetSection("BibleJSONDataPath").Value));
             builder.RegisterType<BibleDomain.CoreEntities.Book>()
                 .As<BibleComonInterface.IBook>();
         }

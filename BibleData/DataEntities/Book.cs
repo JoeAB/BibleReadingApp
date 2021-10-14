@@ -11,6 +11,11 @@ namespace BibleData.DataEntities
         {
             BookName = name;
         }
+        public Book(String name, int countChapter)
+        {
+            BookName = name;
+            ChapterCount = countChapter;
+        }
         public string BookName { get; set; }
         public int ChapterCount { get; set; }
     }

@@ -94,8 +94,5 @@ namespace BibleData.DataRetrieval
             return readText; 
         }
 
-
-        //            String result = File.ReadAllText("C:\\Keys\\en_bbe.JSON");
-       // var jObject = JArray.Parse(result);
     }
 }
