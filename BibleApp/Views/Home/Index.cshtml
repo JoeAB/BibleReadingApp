@@ -1,8 +1,18 @@
-﻿@{
+﻿@model BookListViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-md-12">
+        <h1>Books of the Bible</h1>
+    </div>
 </div>
+@foreach (var book in Model.Books)
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink(book.BookName,"Book", new  { id = book.BookName})
+        </div>
+    </div>
+}

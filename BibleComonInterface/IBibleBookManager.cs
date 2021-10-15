@@ -7,5 +7,6 @@ namespace BibleComonInterface
     public interface IBibleBookManager
     {
         public List<IBook> GetBibleBookList();
+        public IBook GetBook(String bookID);
     }
 }

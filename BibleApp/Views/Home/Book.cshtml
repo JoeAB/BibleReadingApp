@@ -1,0 +1,27 @@
+﻿@model BibleApp.Models.BookViewModel
+
+@{
+    ViewData["Title"] = "Book";
+}
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>@Model.Book.BookName</h1>
+    </div>
+</div>
+@foreach (var chapter in Model.Book.Chapters)
+{
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2>@Html.Raw("Chapter " +chapter.ChapterNumber)</h2>
+        <p>
+            @for(int i=0; i< chapter.VerseCount; i++)
+            {
+                @Html.Raw((i+1)+" "+chapter.Verses[i].Text+ " ")
+            }
+        </p>
+    </div>
+</div>
+}
+
+

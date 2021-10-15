@@ -24,13 +24,20 @@ namespace BibleApp.Controllers
         }
 
         public IActionResult Index()
-
         {
-            List<IBook> books = _bookManager.GetBibleBookList();
+            BookListViewModel model = new BookListViewModel();
+            model.Books = _bookManager.GetBibleBookList();
 
-            return View();
+            return View(model);
         }
 
+        public IActionResult Book(String id)
+        {
+            BookViewModel model = new BookViewModel();
+            model.Book = _bookManager.GetBook(id);
+
+            return View(model);
+        }
 
         public IActionResult Privacy()
         {

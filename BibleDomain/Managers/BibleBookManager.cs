@@ -17,5 +17,10 @@ namespace BibleDomain.Managers
         {
             return _loader.GetBooks();
         }
+
+        public IBook GetBook(string bookID)
+        {
+            return _loader.GetBook(bookID);
+        }
     }
 }
