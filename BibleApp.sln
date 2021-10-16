@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibleData", "BibleData\Bibl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibleDataTest", "BibleDataTest\BibleDataTest.csproj", "{9CBED888-1A0E-4D3E-9093-2459A2E248B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleDomainTest", "BibleDomainTest\BibleDomainTest.csproj", "{8D4DC4F9-6AB6-4C14-BB88-E9DC34409BAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9CBED888-1A0E-4D3E-9093-2459A2E248B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CBED888-1A0E-4D3E-9093-2459A2E248B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CBED888-1A0E-4D3E-9093-2459A2E248B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4DC4F9-6AB6-4C14-BB88-E9DC34409BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4DC4F9-6AB6-4C14-BB88-E9DC34409BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4DC4F9-6AB6-4C14-BB88-E9DC34409BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4DC4F9-6AB6-4C14-BB88-E9DC34409BAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
