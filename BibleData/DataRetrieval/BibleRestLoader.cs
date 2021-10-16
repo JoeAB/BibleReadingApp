@@ -45,21 +45,6 @@ namespace BibleData.DataRetrieval
         }
 
 
-        public IChapter GetChapter(IBook book, int chapterNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IChapter> GetChapters(IBook book)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IPassage GetPassage(IBook book, IChapter chapter, int startVerse, int endVerse)
-        {
-            throw new NotImplementedException();
-        }
-
         private async Task<string> DataFetchAsync(String url)
         {
             var client = new HttpClient();

@@ -50,12 +50,6 @@ namespace BibleDataTest
             Assert.That(book.BookName.Equals("John"));
         }
 
-        public void GetChapter()
-        {
-            IChapter chapter = _loader.GetChapter(_testBook, 11);
-            Assert.That(chapter.ChapterNumber == 11);
-            Assert.That(chapter.VerseCount == 10);
-        }
 
 
         private class TestBook : IBook

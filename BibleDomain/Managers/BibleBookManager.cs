@@ -22,5 +22,17 @@ namespace BibleDomain.Managers
         {
             return _loader.GetBook(bookID);
         }
+
+        public IChapter GetChapter(string bookID, int chapterNumber)
+        {
+            IBook book = GetBook(bookID);
+            int chapterIndex = chapterNumber - 1;//adjust to index
+            return book.Chapters[chapterIndex];
+        }
+
+        public IPassage GetPassage(string bookID, int chapterNumber, int startVerse, int endVerse)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -69,21 +69,5 @@ namespace BibleData.DataRetrieval
             return books;
         }
 
-        public IChapter GetChapter(IBook book, int chapterNumber)
-        {
-            //to adjust chapter 
-            return book.Chapters[chapterNumber-1];
-        }
-
-        public List<IChapter> GetChapters(IBook book)
-        {
-            return book.Chapters;
-        }
-
-        public IPassage GetPassage(IBook book, IChapter chapter, int startVerse, int endVerse)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

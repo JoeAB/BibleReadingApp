@@ -8,8 +8,5 @@ namespace BibleComonInterface
     {
         public List<IBook> GetBooks();
         public IBook GetBook(String bookID);
-        public List<IChapter> GetChapters(IBook book);
-        public IChapter GetChapter(IBook book, int chapterNumber);
-        public IPassage GetPassage(IBook book, IChapter chapter, int startVerse, int endVerse);
     }
 }
