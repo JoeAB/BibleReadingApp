@@ -1,4 +1,5 @@
 ﻿using BibleComonInterface;
+using BibleDomain.CoreEntities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,16 +24,32 @@ namespace BibleDomain.Managers
             return _loader.GetBook(bookID);
         }
 
-        public IChapter GetChapter(string bookID, int chapterNumber)
+        public IChapter GetChapter(IBook book, int chapterNumber)
         {
-            IBook book = GetBook(bookID);
+            if(book.ChapterCount < chapterNumber)
+            {
+                //we'll want to return some sort of validation or log something later
+                return null;
+            }
             int chapterIndex = chapterNumber - 1;//adjust to index
             return book.Chapters[chapterIndex];
         }
 
-        public IPassage GetPassage(string bookID, int chapterNumber, int startVerse, int endVerse)
+        public IPassage GetPassage(IBook book, IChapter chapter, int startVerse, int endVerse)
         {
-            throw new NotImplementedException();
+            if(chapter.VerseCount < endVerse || startVerse < 1 || endVerse < startVerse)
+            {
+                return null;
+            }
+            IPassage passage = new Passage();
+            passage.BookName = book.BookName;
+            passage.ChapterNumber = chapter.ChapterNumber;
+            passage.Verses = new List<IVerse>();
+            for(int i = startVerse -1; i <= endVerse -1; i++)
+            {
+                passage.Verses.Add(chapter.Verses[i]);
+            }
+            return passage;
         }
     }
 }

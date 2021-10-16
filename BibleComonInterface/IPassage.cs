@@ -6,9 +6,10 @@ namespace BibleComonInterface
 {
     public interface IPassage
     {
-        public IChapter Chapter { get; set; }
+        public String BookName { get;set }
+        public int ChapterNumber { get; set; }
         public int PassageStart { get; set; }
         public int PassageEnd { get; set; }
-        public string Text { get; set; }
+        List<IVerse> Verses { get; set; }
     }
 }
