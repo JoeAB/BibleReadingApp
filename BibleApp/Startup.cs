@@ -38,6 +38,8 @@ namespace BibleApp
                 .As<BibleComonInterface.IBibleBookManager>();
             builder.RegisterType<BibleData.DataRetrieval.BibleJsonLoader>()
                 .As<BibleComonInterface.IBibleLoader>().WithParameter(new TypedParameter(typeof(string), Configuration.GetSection("BibleJSONDataPath").Value));
+            builder.RegisterType<BibleData.DataRetrieval.BibleUserDataSQLLiteRepo>()
+                .As<BibleComonInterface.IBibleUserDataRepo>().WithParameter(new TypedParameter(typeof(string), Configuration.GetSection("DBConnectionString").Value));
 
             builder.RegisterType<BibleDomain.CoreEntities.Book>()
                 .As<BibleComonInterface.IBook>();
