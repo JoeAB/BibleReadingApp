@@ -45,6 +45,8 @@ namespace BibleDomain.Managers
             passage.BookName = book.BookName;
             passage.ChapterNumber = chapter.ChapterNumber;
             passage.Verses = new List<IVerse>();
+            passage.PassageStart = startVerse;
+            passage.PassageEnd = endVerse;
             for(int i = startVerse -1; i <= endVerse -1; i++)
             {
                 passage.Verses.Add(chapter.Verses[i]);

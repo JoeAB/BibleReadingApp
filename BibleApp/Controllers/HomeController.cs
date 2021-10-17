@@ -39,6 +39,15 @@ namespace BibleApp.Controllers
             return View(model);
         }
 
+        public IActionResult Passage(String bookID, int chapterNumber, int verseStart, int verseEnd)
+        {
+            PassageViewModel model = new PassageViewModel();
+            IBook book = _bookManager.GetBook(bookID);
+            IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
+            model.Passage =  _bookManager.GetPassage(book, chapter, verseStart, verseEnd);
+            return View(model);
+        }
+
         public IActionResult Privacy()
         {
             return View();
