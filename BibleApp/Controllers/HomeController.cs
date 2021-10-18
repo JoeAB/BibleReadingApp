@@ -58,6 +58,12 @@ namespace BibleApp.Controllers
                 verseEnd = model.AddPassage.EndVerse });
         }
 
+        public IActionResult ListSavedPassages()
+        {
+            SavedPassageViewModel model = new SavedPassageViewModel();
+            model.Passages = _bookManager.GetPassages();
+            return View(model);
+        }
 
         public IActionResult Privacy()
         {

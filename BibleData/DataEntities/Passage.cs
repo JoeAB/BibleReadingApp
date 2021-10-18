@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BibleData.DataEntities
 {
-    class Passage 
+    class Passage : IPassageData
     {
         public int ID { get; set; }
         public string BookName { get; set; }

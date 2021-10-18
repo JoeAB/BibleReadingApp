@@ -1,0 +1,14 @@
+﻿@model BibleApp.Models.SavedPassageViewModel
+
+@{
+    ViewData["Title"] = "ListSavedPassages";
+}
+
+@foreach (var item in Model.Passages)
+{
+    <div class="row">
+        <div class="col-md-12">
+           @item.BookName - Chapter @item.ChapterNumber: @item.PassageStart - @item.PassageEnd 
+        </div>
+    </div>
+}

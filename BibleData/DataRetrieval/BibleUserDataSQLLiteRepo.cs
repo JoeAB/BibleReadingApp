@@ -26,7 +26,7 @@ namespace BibleData.DataRetrieval
             return true;
         }
 
-        public List<IPassage> GetUserPassages()
+        public List<IPassage> GetPassages()
         {
             throw new NotImplementedException();
         }
@@ -51,6 +51,19 @@ namespace BibleData.DataRetrieval
         public bool UpdateUserPassage(IPassage passage)
         {
             throw new NotImplementedException();
+        }
+
+        List<IPassageData> IBibleUserDataRepo.GetPassages()
+        {
+            List<IPassageData> passages = new List<IPassageData>();
+            using (var db = new BibleData.DataRetrieval.BibleUserDataContext(_connectionString))
+            {
+                foreach(var item in db.Passage)
+                {
+                    passages.Add(item);
+                }
+            }
+            return passages;
         }
     }
 }

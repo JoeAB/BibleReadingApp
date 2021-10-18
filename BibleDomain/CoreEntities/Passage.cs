@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BibleDomain.CoreEntities
 {
-    class Passage : IPassage
+    class Passage : IPassage, IPassageData
     {
         public int ID { get; set; }
         public int ChapterNumber { get; set; }

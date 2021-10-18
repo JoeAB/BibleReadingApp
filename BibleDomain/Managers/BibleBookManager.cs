@@ -64,5 +64,22 @@ namespace BibleDomain.Managers
         {
             return _dbRepo.AddUserPassage(passage);
         }
+
+        public List<IPassage> GetPassages()
+        {
+            List<IPassage> returnList = new List<IPassage>();
+            List<IPassageData> dataList = _dbRepo.GetPassages();
+            foreach(var item in dataList)
+            {
+                //we don't need to set up the whole object when just listing the passages
+                IPassage passage = new Passage();
+                passage.BookName = item.BookName;
+                passage.ChapterNumber = item.ChapterNumber;
+                passage.PassageStart = item.PassageStart;
+                passage.PassageEnd = item.PassageEnd;
+                returnList.Add(passage);
+            }
+            return returnList;
+        }
     }
 }
