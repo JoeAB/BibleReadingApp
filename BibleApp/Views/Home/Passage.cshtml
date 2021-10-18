@@ -18,3 +18,15 @@
         </p>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 ">
+        @using (Html.BeginForm("AddPassageToUserPassages", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.AddPassage.BookName)
+            @Html.HiddenFor(x => x.AddPassage.ChapterNumber)
+            @Html.HiddenFor(x => x.AddPassage.StartVerse)
+            @Html.HiddenFor(x => x.AddPassage.EndVerse)
+            <button type="submit">Save Passage for Later</button>
+        }
+    </div>
+</div>

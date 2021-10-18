@@ -9,6 +9,12 @@ namespace BibleDomain.Managers
     public class BibleBookManager : IBibleBookManager
     {
         private IBibleLoader _loader;
+        private IBibleUserDataRepo _dbRepo;
+        public BibleBookManager(IBibleLoader loader, IBibleUserDataRepo dbRepo)
+        {
+            _loader = loader;
+            _dbRepo = dbRepo;
+        }
         public BibleBookManager(IBibleLoader loader)
         {
             _loader = loader;
@@ -52,6 +58,11 @@ namespace BibleDomain.Managers
                 passage.Verses.Add(chapter.Verses[i]);
             }
             return passage;
+        }
+
+        public bool AddUserPassage(IPassage passage)
+        {
+            return _dbRepo.AddUserPassage(passage);
         }
     }
 }

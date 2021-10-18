@@ -41,12 +41,23 @@ namespace BibleApp.Controllers
 
         public IActionResult Passage(String bookID, int chapterNumber, int verseStart, int verseEnd)
         {
-            PassageViewModel model = new PassageViewModel();
             IBook book = _bookManager.GetBook(bookID);
             IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
-            model.Passage =  _bookManager.GetPassage(book, chapter, verseStart, verseEnd);
+            PassageViewModel model = new PassageViewModel(_bookManager.GetPassage(book, chapter, verseStart, verseEnd));
             return View(model);
         }
+        [HttpPost]
+        public IActionResult AddPassageToUserPassages(PassageViewModel model)
+        {
+            AddPassageViewModel addModel = model.AddPassage;
+            IBook book = _bookManager.GetBook(addModel.BookName);
+            IChapter chapter = _bookManager.GetChapter(book, addModel.ChapterNumber);
+            _bookManager.AddUserPassage(_bookManager.GetPassage(book, chapter, addModel.StartVerse, addModel.EndVerse));
+            return RedirectToAction("Passage", new { bookID = model.AddPassage.BookName, 
+                chapterNumber = model.AddPassage.ChapterNumber, verseStart = model.AddPassage.StartVerse, 
+                verseEnd = model.AddPassage.EndVerse });
+        }
+
 
         public IActionResult Privacy()
         {

@@ -7,6 +7,7 @@ namespace BibleDomain.CoreEntities
 {
     class Passage : IPassage
     {
+        public int ID { get; set; }
         public int ChapterNumber { get; set; }
         public int PassageStart { get ; set ; }
         public int PassageEnd { get; set; }

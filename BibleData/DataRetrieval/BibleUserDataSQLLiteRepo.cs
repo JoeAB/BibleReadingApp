@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BibleComonInterface;
+using BibleData.DataEntities;
 using Microsoft.Data.Sqlite;
 
 namespace BibleData.DataRetrieval
@@ -13,6 +14,18 @@ namespace BibleData.DataRetrieval
         {
             _connectionString = connectionString;
         }
+
+        public bool AddUserPassage(IPassage passage)
+        {
+            using (var db = new BibleData.DataRetrieval.BibleUserDataContext(_connectionString))
+            {
+                db.Passage.Add(new Passage(passage));
+                db.SaveChanges();
+
+            }
+            return true;
+        }
+
         public List<IPassage> GetUserPassages()
         {
             throw new NotImplementedException();
@@ -25,7 +38,14 @@ namespace BibleData.DataRetrieval
 
         public bool SaveUserPassage(IPassage passage)
         {
-            throw new NotImplementedException();
+            Passage dbPassage = new Passage(passage);
+            using (var db = new BibleData.DataRetrieval.BibleUserDataContext(_connectionString))
+            {
+                db.Passage.Add(dbPassage);
+
+                db.SaveChanges();
+            }
+            return true;
         }
 
         public bool UpdateUserPassage(IPassage passage)
