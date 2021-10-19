@@ -8,7 +8,15 @@
 {
     <div class="row">
         <div class="col-md-12">
-           @item.BookName - Chapter @item.ChapterNumber: @item.PassageStart - @item.PassageEnd 
+            @Html.ActionLink(item.BookName+" - Chapter "+item.ChapterNumber+
+           ": "+item.PassageStart+" - "+item.PassageEnd, "Passage", new
+           {
+               bookID = item.BookName,
+               chapterNumber = item.ChapterNumber,
+               verseStart = item.PassageStart,
+               verseEnd = item.PassageEnd
+           })
+     
         </div>
     </div>
 }
