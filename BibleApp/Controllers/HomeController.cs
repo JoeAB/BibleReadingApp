@@ -2,6 +2,7 @@
 using BibleComonInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -44,6 +45,7 @@ namespace BibleApp.Controllers
             IBook book = _bookManager.GetBook(bookID);
             IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
             PassageViewModel model = new PassageViewModel(_bookManager.GetPassage(book, chapter, verseStart, verseEnd));
+  
             return View(model);
         }
         [HttpPost]

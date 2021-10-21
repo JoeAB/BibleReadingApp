@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BibleData.DataEntities
 {
+    [Serializable]
     class Verse : IVerse
     {
         public string Text { get ; set; }

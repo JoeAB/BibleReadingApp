@@ -1,22 +1,18 @@
 ﻿@model BibleApp.Models.PassageViewModel
-
 @{
     ViewData["Title"] = "Passage";
 }
-<div class="row">
-    <div class="col-md-12 text-center">
-        <h1>@Model.Passage.BookName - Chapter @Model.Passage.ChapterNumber : Verse @Model.Passage.PassageStart - @Model.Passage.PassageEnd</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <p>
-            @foreach (var verse in Model.Passage.Verses)
-            {
-                @Html.Raw((verse.verseNumber) + " " + verse.Text + " ")
-            }
-        </p>
-    </div>
+@Html.ReactInitJavaScript()
+
+<div id="passageContainer">
+    @Html.React("PassageViewComponent", new
+{
+    bookName = Model.Passage.BookName,
+    chapterNumber = Model.Passage.ChapterNumber,
+    passageStart = Model.Passage.PassageStart,
+    passageEnd = Model.Passage.PassageEnd,
+    passageData = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Passage.Verses)
+})
 </div>
 <div class="row">
     <div class="col-md-12 ">
@@ -30,3 +26,8 @@
         }
     </div>
 </div>
+
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.0/umd/react.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+<script src="@Url.Content("~/js/Components/PassageViewComponent.jsx")"></script>
