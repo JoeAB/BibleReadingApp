@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Passage";
 }
-@Html.ReactInitJavaScript()
 
 <div id="passageContainer">
     @Html.React("PassageViewComponent", new
@@ -10,9 +9,8 @@
     bookName = Model.Passage.BookName,
     chapterNumber = Model.Passage.ChapterNumber,
     passageStart = Model.Passage.PassageStart,
-    passageEnd = Model.Passage.PassageEnd,
-    passageData = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Passage.Verses)
-})
+    passageEnd = Model.Passage.PassageEnd
+    })
 </div>
 <div class="row">
     <div class="col-md-12 ">
@@ -31,3 +29,4 @@
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
 <script src="@Url.Content("~/js/Components/PassageViewComponent.jsx")"></script>
+@Html.ReactInitJavaScript()

@@ -48,6 +48,15 @@ namespace BibleApp.Controllers
   
             return View(model);
         }
+        [HttpGet]
+        public String PassageUpdate(String bookID, int chapterNumber, int verseStart, int verseEnd)
+        {
+            IBook book = _bookManager.GetBook(bookID);
+            IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
+            PassageViewModel model = new PassageViewModel(_bookManager.GetPassage(book, chapter, verseStart, verseEnd));
+            String result = Newtonsoft.Json.JsonConvert.SerializeObject(model.Passage.Verses);
+            return result;
+        }
         [HttpPost]
         public IActionResult AddPassageToUserPassages(PassageViewModel model)
         {
