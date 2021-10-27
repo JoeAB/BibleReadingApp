@@ -55,7 +55,9 @@ namespace BibleApp.Controllers
             IBook book = _bookManager.GetBook(bookID);
             IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
             PassageViewModel model = new PassageViewModel(_bookManager.GetPassage(book, chapter, verseStart, verseEnd));
-            String result = Newtonsoft.Json.JsonConvert.SerializeObject(model.Passage.Verses);
+            model.MaxChapter = book.ChapterCount;
+            model.MaxVerse = chapter.VerseCount;
+            String result = Newtonsoft.Json.JsonConvert.SerializeObject(model);
             return result;
         }
         [HttpPost]

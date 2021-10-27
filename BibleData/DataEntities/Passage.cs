@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BibleData.DataEntities
 {
+    [Serializable]
     class Passage : IPassageData
     {
         public int ID { get; set; }

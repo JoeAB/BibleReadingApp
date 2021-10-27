@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleApp.Models
 {
+    [Serializable]
     public class PassageViewModel
     {
         public PassageViewModel() { }
