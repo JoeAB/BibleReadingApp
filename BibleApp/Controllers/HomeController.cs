@@ -45,7 +45,8 @@ namespace BibleApp.Controllers
             IBook book = _bookManager.GetBook(bookID);
             IChapter chapter = _bookManager.GetChapter(book, chapterNumber);
             PassageViewModel model = new PassageViewModel(_bookManager.GetPassage(book, chapter, verseStart, verseEnd));
-  
+            model.MaxChapter = book.ChapterCount;
+            model.MaxVerse = chapter.VerseCount;
             return View(model);
         }
         [HttpGet]

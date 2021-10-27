@@ -12,6 +12,12 @@ namespace BibleApp.Models
 
         public IPassage Passage { get; set; }
         public AddPassageViewModel AddPassage { get; set; }
+
+        public String BookName { get; set; }
+        public int ChapterNumber { get; set; }
+        public int MaxChapter { get; set; }
+        public int MaxVerse { get; set; }
+
         public PassageViewModel(IPassage passage)
         {
             Passage = passage;
