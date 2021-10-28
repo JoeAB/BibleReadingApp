@@ -47,7 +47,7 @@
                     <p>
                         {
                             valuesArray.map(verse => (
-                                <span>{verse.verseNumber} {verse.Text} </span>
+                                <span key={verse.verseNumber}>{verse.verseNumber} {verse.Text} </span>
                             ))
                         }
                     </p>
