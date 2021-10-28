@@ -35,11 +35,15 @@
             <div className="row">
                 <div className="col-md-12 text-center">
                     <label htmlFor="chapter">Chapter</label>
-                    <input min="1" max={maxChapter} type="number" name="chapter" value={chapter} onChange={(event) => { setStart(1); setEnd(1); setChapter(event.target.value) }} />
+                    <input min="1" max={maxChapter} type="number" name="chapter" value={chapter}
+                        onKeyDown={(event) => { event.preventDefault(); }}
+                        onChange={(event) => { setStart(1); setEnd(1); setChapter(event.target.value) }} />
                     <label htmlFor="start">Passage Start</label>
-                    <input min="1" max={end} type="number" name="start" value={start} onChange={(event) => setStart(event.target.value)} />
+                    <input min="1" max={end} type="number" name="start" value={start}
+                        onKeyDown={(event) => {event.preventDefault(); }} onChange={(event) => setStart(event.target.value)} />
                     <label htmlFor="end">Passage End</label>
-                    <input min={start} max={maxVerse} type="number" name="end" value={end} onChange={(event) => setEnd(event.target.value)} />
+                    <input min={start} max={maxVerse} type="number" name="end" value={end}
+                        onKeyDown={(event) => { event.preventDefault();}} onChange={(event) => setEnd(event.target.value)} />
                 </div>
             </div>
             <div className="row">
