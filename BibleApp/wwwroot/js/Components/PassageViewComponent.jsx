@@ -24,9 +24,28 @@
 
     const valuesArray = dataVerses;
 
+
+    function savePassage(bookID, chap, startV, endV) {
+
+        var value = {
+            Book: bookID ,
+            Chapter: parseInt(chap) ,
+            PassageStart: parseInt(startV) ,
+            PassageEnd: parseInt(endV)
+        }
+        let res = fetch('/Home/AddPassageToUserPassages', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(value)
+        });
+    }
+
+
+
     return (
         <>
-
             <div className="row">
                 <div className="col-md-12 text-center">
                     <h1>{bookName} - Chapter {chapter} : Verse {start} - {end}</h1>
@@ -55,6 +74,11 @@
                             ))
                         }
                     </p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <button onClick={() => savePassage(bookName, chapter, start, end)} type="submit">Save Passage for Later</button>
                 </div>
             </div>
 		</>

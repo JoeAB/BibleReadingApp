@@ -14,18 +14,6 @@
     maxVerse = Model.MaxVerse
     })
 </div>
-<div class="row">
-    <div class="col-md-12 ">
-        @using (Html.BeginForm("AddPassageToUserPassages", "Home", FormMethod.Post))
-        {
-            @Html.HiddenFor(x => x.AddPassage.BookName)
-            @Html.HiddenFor(x => x.AddPassage.ChapterNumber)
-            @Html.HiddenFor(x => x.AddPassage.StartVerse)
-            @Html.HiddenFor(x => x.AddPassage.EndVerse)
-            <button type="submit">Save Passage for Later</button>
-        }
-    </div>
-</div>
 
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.0/umd/react.development.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>

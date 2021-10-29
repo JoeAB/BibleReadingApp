@@ -61,15 +61,12 @@ namespace BibleApp.Controllers
             return result;
         }
         [HttpPost]
-        public IActionResult AddPassageToUserPassages(PassageViewModel model)
+        public ActionResult AddPassageToUserPassages([FromBody] AddPassageViewModel addPassageViewModel)
         {
-            AddPassageViewModel addModel = model.AddPassage;
-            IBook book = _bookManager.GetBook(addModel.BookName);
-            IChapter chapter = _bookManager.GetChapter(book, addModel.ChapterNumber);
-            _bookManager.AddUserPassage(_bookManager.GetPassage(book, chapter, addModel.StartVerse, addModel.EndVerse));
-            return RedirectToAction("Passage", new { bookID = model.AddPassage.BookName, 
-                chapterNumber = model.AddPassage.ChapterNumber, verseStart = model.AddPassage.StartVerse, 
-                verseEnd = model.AddPassage.EndVerse });
+            IBook book = _bookManager.GetBook(addPassageViewModel.Book);
+            IChapter chapter = _bookManager.GetChapter(book, addPassageViewModel.Chapter);
+            _bookManager.AddUserPassage(_bookManager.GetPassage(book, chapter, addPassageViewModel.PassageStart, addPassageViewModel.PassageEnd));
+            return Ok();
         }
 
         public IActionResult ListSavedPassages()

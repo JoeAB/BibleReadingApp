@@ -9,9 +9,9 @@ namespace BibleApp.Models
     [Serializable]
     public class AddPassageViewModel
     {
-        public String BookName { get; set; }
-        public int ChapterNumber { get; set; }
-        public int StartVerse { get; set; }
-        public int EndVerse { get; set; }
+        public String Book { get; set; }
+        public int Chapter { get; set; }
+        public int PassageStart { get; set; }
+        public int PassageEnd { get; set; }
     }
 }
