@@ -15,7 +15,7 @@
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.ActionLink(book.BookName,"Book", new  { id = book.BookName})
+            @Html.ActionLink(book.BookName, "Passage", new { bookID = book.BookName, chapterNumber = 1, verseStart = 1, verseEnd = 1 })
         </div>
     </div>
 }
