@@ -7,7 +7,12 @@
 @foreach (var item in Model.Passages)
 {
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-1">
+            <a href="@Url.Action("RemovePassage", "Home", new { id = item.ID})">
+                <span class="close">X</span>
+            </a>
+        </div>
+        <div class="col-md-11">
             @Html.ActionLink(item.BookName+" - Chapter "+item.ChapterNumber+
            ": "+item.PassageStart+" - "+item.PassageEnd, "Passage", new
            {

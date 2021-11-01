@@ -4,6 +4,7 @@ using System.Text;
 using BibleComonInterface;
 using BibleData.DataEntities;
 using Microsoft.Data.Sqlite;
+using System.Linq;
 
 namespace BibleData.DataRetrieval
 {
@@ -34,6 +35,23 @@ namespace BibleData.DataRetrieval
         public bool RemoveUserPassage(IPassage passage)
         {
             return true;
+        }
+
+        public bool RemoveUserPassageByID(string id)
+        {
+            int idInt;
+            if(Int32.TryParse(id, out idInt))
+            {
+                using (var db = new BibleData.DataRetrieval.BibleUserDataContext(_connectionString))
+                {
+                    Passage removalItem = db.Passage.Single(x => x.ID.Equals(idInt));
+                    db.Passage.Remove(removalItem);
+
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool SaveUserPassage(IPassage passage)

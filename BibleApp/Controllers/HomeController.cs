@@ -76,6 +76,13 @@ namespace BibleApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult RemovePassage(string id)
+        {
+            _bookManager.RemovePassageByID(id);
+            return RedirectToAction("ListSavedPassages");
+        }
+
         public IActionResult Privacy()
         {
             return View();

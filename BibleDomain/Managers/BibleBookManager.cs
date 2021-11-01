@@ -73,6 +73,7 @@ namespace BibleDomain.Managers
             {
                 //we don't need to set up the whole object when just listing the passages
                 IPassage passage = new Passage();
+                passage.ID = item.ID;
                 passage.BookName = item.BookName;
                 passage.ChapterNumber = item.ChapterNumber;
                 passage.PassageStart = item.PassageStart;
@@ -80,6 +81,11 @@ namespace BibleDomain.Managers
                 returnList.Add(passage);
             }
             return returnList;
+        }
+
+        public bool RemovePassageByID(string id)
+        {
+            return _dbRepo.RemoveUserPassageByID(id);
         }
     }
 }

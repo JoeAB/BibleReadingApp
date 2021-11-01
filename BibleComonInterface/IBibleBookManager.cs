@@ -12,5 +12,6 @@ namespace BibleComonInterface
         public IPassage GetPassage(IBook bookID, IChapter chapterNumber, int startVerse, int endVerse);
         public bool AddUserPassage(IPassage passage);
         public List<IPassage> GetPassages();
+        public bool RemovePassageByID(string id);
     }
 }
